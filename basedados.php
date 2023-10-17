@@ -33,14 +33,20 @@
     if (!$connexio) {
         echo "Error de connexió " . mysqli_connect_error();
     }
+    try {
+        $query = "INSERT INTO user (user_id, name, surname, password, email, rol, active) VALUES ($user_id, '$name', '$surname', '$password', '$email', '$rol', $active)";
+        if ($user = mysqli_query($connexio, $query)) {
+            header('Location: resultat.php');
+        } else {
+            echo "ERROR: " . $user . "<br>" . mysqli_error($connexio);
+        }
+        mysqli_close($connexio);
 
-    $query = "INSERT INTO user (user_id, name, surname, password, email, rol, active) VALUES ($user_id, $name, $surname, $password, $email, $rol, $active)";
-    if ($user = mysqli_query($connexio, $query)) {
-        header('Location: resultat.php');
-    } else {
-        echo "ERROR: " . $user . "<br>" . mysqli_error($connexio);
+    } catch (Exception $e) {
+        echo "Error: " - $e -> getMessage();
     }
-    mysqli_close($connexio);
+
+    
 
     ?>
 </body>
