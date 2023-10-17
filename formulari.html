@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Formulari</title>
+</head>
+
+<body>
+    <div class="content">
+        <h1 style="text-align: center">Formulari Alumnat i Professorat</h1>
+        <form name="Formulari usuaris" action="basedados.php" method="post" target="_blank"">
+            <label for="user_id">ID d'usuari:</label><br>
+            <input type="number" id="user_id" name="user_id" required><br>
+
+            <label for="nom">Nom:</label><br>
+            <input type="text" name="nom" required><br>
+
+            <label for="cognom">Cognom:</label><br>
+            <input type="text" name="cognom"><br>
+
+            <label for="password">Contrasenya:</label><br>
+            <input type="password" name="password" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" required><br>
+
+            <label for="rol">Indica el teu rol:</label><br>
+            <select name="rol" required>
+                <option value="1">Alumnat</option>
+                <option value="2">Professorat</option>
+            </select><br>
+
+            <label for="active">El teu usuari està actiu?:</label><br>
+            <select name="active" required>
+                <option value="true">Si</option>
+                <option value="false">No</option>
+            </select><br>
+
+            <input type=reset><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
