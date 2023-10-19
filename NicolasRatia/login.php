@@ -1,27 +1,16 @@
 <?php
 //Configuració de la BBDD
-include("dbConf.php");
+include ("dbConf.php");
 
 
 //Variables de les dades 
 $email=$_POST['email'];
 $password=$_POST['password'];
 
-// Funció que comproba si es alumne o profesor
-function comprovacio($user, $connect){
-    if($user['rol']=="alumnat"){
-        echo "Hola ".$user['name']." ets alumne<br>";
-        echo "nom: ". $user['name']."<br>";
-        echo "cognom: ". $user['surname']."<br>";
-        echo "email: ". $user['email']."<br>";
-    }else{
-        echo "Hola ".$user['name']." ".$user['surname'].", ets professor!";
-        // Select de tots els usuaris
-        $query2= "SELECT * FROM `user`";
-        foreach(mysqli_query($connect, $query2) as $use){
-            echo "<br>nom i cognom: ". $use['name']." ".$use['surname'];
-        }
-    }
+// Funció que retorna tots els ususaris
+function allUsers($connect, $query2){
+   $totsUse= mysqli_query($connect, $query2);
+   return $totsUse;
 
 }
 
@@ -34,7 +23,20 @@ try{
             $users= mysqli_query($connect, $query);
             if(mysqli_num_rows($users)!=0){
                 foreach($users as $user){
-                    comprovacio($user, $connect);
+                    if($user['rol']=="alumnat"){
+                        echo "Hola ".$user['name']." ets alumne<br>";
+                        echo "nom: ". $user['name']."<br>";
+                        echo "cognom: ". $user['surname']."<br>";
+                        echo "email: ". $user['email']."<br>";
+                    }else{
+                        echo "Hola ".$user['name']." ".$user['surname'].", ets professor!";
+                        // Select de tots els usuaris
+                        $query2= "SELECT * FROM `user`";
+                        $totUse= allUsers($connect, $query2);
+                        foreach($totUse as $use){
+                            echo "<br>nom i cognom: ". $use['name']." ".$use['surname'];
+                        }
+                    }
                 }
             }else{
                 include('login.html');
