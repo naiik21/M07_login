@@ -21,7 +21,8 @@ try{
         try{
             $query= "INSERT INTO `user`(`user_id`, `name`, `surname`, `password`, `email`, `rol`, `active`) VALUES ('$user_id', '$name', '$surname', '$password', '$email', '$rol', '$active');";
             $users= mysqli_query($connect, $query);
-            header('Location: resultat.php');
+            include('formulari.html');
+            echo "Usuari registrat";
         }catch(mysqli_sql_exception $e){
             include('formulari.html');
             echo ''. $e->getMessage();
