@@ -28,13 +28,13 @@ Consultarà la informació introduïda en la pàgina de login per comprovar si l
 
 # Resultats
 * Menú de login:
-![alt](img/menuLogin.png "Menú login")
+![alt](P5%20Jordi%20Manyà/img/menuLogin.png "Menú login")
 
 * Resultat d'alumnat:
-![alt](img/alumnat.png "alumnat")
+![alt](P5%20Jordi%20Manyà/img/alumnat.png "alumnat")
 
 * Resultat de professorat: 
-![alt](img/professorat.png "professorat")
+![alt](P5%20Jordi%20Manyà/img/professorat.png "professorat")
 
 * Usuari no existeix:
-![alt](img/error.png "error")
+![alt](P5%20Jordi%20Manyà/img/error.png "error")
