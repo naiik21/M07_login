@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+$_SESSION["LoggedIn"] = true;
+$_SESSION["Nom"] = $name;
+$_SESSION["Rol"] = $rol;
+$_SESSION["User_id"] = $user_id;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +21,7 @@
 <body>
     <div class="content">
         <h1 style="text-align: center">LOGIN</h1>
-        <form name="Formulari usuaris" action="validarLogin.php" method="post">
+        <form name="Formulari usuaris" action="validar.php" method="post">
 
             <label for="email">Email:</label><br>
             <input type="text" name="email" required><br>
