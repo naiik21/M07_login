@@ -2,7 +2,6 @@
 //Configuració de la BBDD
 include("dbConf.php");
 
-
 //Variables de les dades 
 $user_id=$_POST['id'];
 $name=$_POST['name'];
@@ -11,7 +10,6 @@ $password=$_POST['password'];
 $email=$_POST['email'];
 $rol=$_POST['rol'];
 $active=$_POST['active'];
-
 
 //Comprovació de connecció
 try{
@@ -35,5 +33,4 @@ try{
 }finally{
     mysqli_close($connect);
 }
-
 ?>
