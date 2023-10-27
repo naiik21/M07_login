@@ -1,4 +1,6 @@
 <?php
+    /********* FITXER PER LA CREACIÓ DE NOUS USUARIS A LA BASE DE DADES ********/
+
     // CONSTANTS DE LA CONNEXIÓ A LA BASE DE DADES
     define("DB_HOST", "localhost");
     define("DB_NAME", "Users");
@@ -26,7 +28,7 @@
     try {
         $query = "INSERT INTO user (user_id, name, surname, password, email, rol, active) VALUES ($user_id, '$name', '$surname', '$password', '$email', '$rol', $active)";
         if ($user = mysqli_query($connexio, $query)) {
-            header('Location: resultat.php');
+            header('Location: login.html');
         } else {
             echo "ERROR: " . $user . "<br>" . mysqli_error($connexio);
         }

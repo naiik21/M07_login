@@ -1,4 +1,6 @@
 <?php
+/********* FITXER PER VALIDAR EL LOGIN D'UN USUARI AMB EL SEU CORREU I CONTRASENYA *********/
+
 // Fitxer de configuració
 include "dbConf.php";
 

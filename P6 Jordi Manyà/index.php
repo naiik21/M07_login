@@ -1,4 +1,6 @@
 <?php
+
+/********* FITXER QUE ES MOSTRA UN COP L'USUARI HA INICIAT SESSIÓ *********/
 session_start();
 ?>
 
@@ -16,7 +18,8 @@ session_start();
     include "dbConf.php";
     echo "<h2>Hola " . $_SESSION["Nom"] . ". El teu rol és: " . $_SESSION["Rol"] . "</h2>";
 
-    echo "<a href='info.php'>Mostrar més informació</a><br>";
+    // Enllaç a la pàgina info.php per mostrar informació de l'usuari amb el mètode GET per rebre l'ID
+    echo "<a href='info.php?user_id=" . $_SESSION['User_id'] . "'>Mostrar més informació</a><br>";
     echo "<a href='logout.php'>Desconnectar-se</a><br>";
 
     if ($_SESSION["Rol"] == "professorat") {
