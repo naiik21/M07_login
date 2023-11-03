@@ -1,37 +1,34 @@
 # ACTIVITAT
 
-Aquesta activitat serà la continuació de la pràctica del login. 
+Seguint la pràctica anterior:
 
+Haurem de modificar la pàgina de:
+* index.php
+* mostrar info.php.
 
-Haurem de fer:
-* Refactoritzar el fitxer de la validar.php:
+Haurem de crear dos fitxers nous:
+* idioma.php -> on guardarem el valor de l’idioma seleccionat en una cookie.
+* delete.php -> eliminarem la cookie.
 
-1. Després del login només haurem de validar que l’usuari existeix a les bases de dades. (S’ha de posar sempre codi defensiu).
-    - En el cas de que el login no sigui correcte tornarem a la pàgina del login, igual que la pràctica anterior.
+El funcionament serà igual fins arribar a la pàgina de index.php.
 
-    - En canvi, en el cas de que el login sigui correcte:
-        - Guardarem en sessió:
-            1. Una variable de sessió per ‘LoggedIn” igual a true. 
-            2. Una variable de sessió pel nom
-            3. Una variable de sessió pel rol.
-            4. Una variable de de sessió pel user_id.
-            Ens dirigirem en una nova pàgina d’inici: index.php
+A index.php:
+* Haurem d’afegir 4 enllaços: Cat, Es, Eng i Eliminar.
+* Per defecte, un dels idiomes haurà d’estar seleccionat de color vermell.
+* Al seleccionar l’idioma s’haurà de mostrar el títol de la pàgina, els enllaços de la pàgina i les capçaleres amb l’idioma seleccionat.
+* S’haurà de quedar de color vermell l’enllaç de l’idioma seleccionat.
+* Al seleccionar eliminar cookies,  haurà de quedar la pàgina per defecte.
 
-## Bones pràctiques: L’objectiu d’aquest punt és la de millorar el codi, la seva estructura i entendre que s’ha de separar la lógica de negoci amb mostrar la informació de l’usuari per pantalla.
+mostrarinfo.php:
+* S’haurà de traduir l’idioma de la pàgina segons l’idioma seleccionat en l’index.php.
 
-* Crear una pàgina d’inici de l’aplicació (index.php)
-1. Mostrarem amb una etiqueta H2: “Hola” . $variable_sessio_nom. “ ets un ”.$variable_sessio_rol.
+idioma.php:
+* Al seleccionar un idioma de la pàgina index.php haurem d’anar a parar a aquesta pàgina.
+* Recuperarem el valor de l’idioma pel mètode GET.
+* Guardarem en una cookie el valor de l’idioma seleccionat que durarà 10 minuts.
+* Redireccionem a la pantalla index.php.
+* Segons l’idioma guardat en la cookie haurem de traduir el títol, els enllaços “ mostrar informació “ i “desconnectar” a l’idioma seleccionat.
+* L’enllaç de l’idioma seleccionat ha de quedar de color vermell. * Els altres han de quedar de color negre.
 
-2. En el cas de ser un professor, s’haurà de fer una consulta per mostrar tots els usuaris de la BBDD (igualment que a la pràctica anterior però l’haurem de fer en la pàgina d’inici), en aquest cas es mostrarà a través d’una taula.
-
-3. Afegirem dos enllaços a la pàgina:
-    - Mostrar informació detallada de l’usuari.Anirem a una pàgina on consultarem a les bases de dades tots els camps de les bases de dades de l’usuari.
-    Aquest enllaç s’haurà de fer a través del mètode GET passant el valor de ID de l’usuari.
-
-    - Desconnectar. (Tancarem la sessió)
-    Serà un fitxer php on farem el procés de tancar sessió. 
-    Un cap fet tots els passos correctement ens redigirà a la pàgina d’inici.
-
-
-* Important: Totes les pàgines que ens trobem després de fer el login, han de tenir el control de que si no hem fet un login han de redireccionar a la pantalla del login.
-
+delete.php
+* Al seleccionar del cookies, eliminarem la cookie i la pantalla haurà de quedar de la forma habitual.
